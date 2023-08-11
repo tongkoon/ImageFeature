@@ -10,6 +10,10 @@ from app.hog import gethog
 
 app = FastAPI()
 
+@app.get("/")
+def root():
+      return {"message":"This is my api"}
+
 def readb64(item_str):
     encode_data = item_str.split(',')[1]
     nparr = np.fromstring(base64.b64decode(encode_data),np.uint8)
