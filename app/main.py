@@ -4,7 +4,7 @@ import cv2
 import numpy as np
 from fastapi import FastAPI, Request
 
-from app.hog import gethog
+# from app.hog import gethog
 
 # 
 
@@ -16,13 +16,13 @@ def readb64(item_str):
     img = cv2.imdecode(nparr,cv2.IMREAD_GRAYSCALE)
     return img
 
-@app.get('/api/gethog')
-async def read_str(request : Request):
-        item = await request.json()
-        item_str = item['img']
-        img = readb64(item_str)
-        hog = gethog(img)
-        return {"HOG":hog.tolist()}
+# @app.get('/api/gethog')
+# async def read_str(request : Request):
+#         item = await request.json()
+#         item_str = item['img']
+#         img = readb64(item_str)
+#         hog = gethog(img)
+#         return {"HOG":hog.tolist()}
 
 @app.get('/hello')
 def hello():
